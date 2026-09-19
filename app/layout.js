@@ -3,6 +3,10 @@ import './globals.css'
 export const metadata = {
   title: 'Apex Code — Sviluppo Web',
   description: 'Apex Code — Sviluppo siti web e piattaforme su misura: e-commerce, automazioni e integrazioni. Scopri i progetti e scrivimi per il tuo.',
+  verification: { google: 'J-X3AdvzSPHAQ_UyhkeGWkVyps66kmmPFVgw2CdMUds' },
+},
+  title: 'Apex Code — Sviluppo Web',
+  description: 'Apex Code — Sviluppo siti web e piattaforme su misura: e-commerce, automazioni e integrazioni. Scopri i progetti e scrivimi per il tuo.',
 }
 
 export default function RootLayout({ children }) {
