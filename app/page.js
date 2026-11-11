@@ -8,6 +8,7 @@ import Tools from '../components/Tools'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import Effects from '../components/Effects'
+import Explainer from '../components/Explainer'
 
 export const revalidate = 60 // il sito si riaggiorna da solo ogni 60s quando cambi i contenuti nel CMS
 
