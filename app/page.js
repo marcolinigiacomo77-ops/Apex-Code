@@ -1,6 +1,7 @@
 import { getSiteData } from '../lib/sanity'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
+import Explainer from '../components/Explainer'
 import Bio from '../components/Bio'
 import Projects from '../components/Projects'
 import Audience from '../components/Audience'
@@ -8,7 +9,6 @@ import Tools from '../components/Tools'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import Effects from '../components/Effects'
-import Explainer from '../components/Explainer'
 
 export const revalidate = 60 // il sito si riaggiorna da solo ogni 60s quando cambi i contenuti nel CMS
 
@@ -19,6 +19,7 @@ export default async function Home() {
     <>
       <Nav settings={settings} />
       <Hero settings={settings} />
+      <Explainer />
       <Bio settings={settings} />
       <Projects projects={projects} />
       <Audience audiences={audiences} />
