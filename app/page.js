@@ -19,8 +19,8 @@ export default async function Home() {
     <>
       <Nav settings={settings} />
       <Hero settings={settings} />
-      <Explainer />
       <Bio settings={settings} />
+      <Explainer />
       <Projects projects={projects} />
       <Audience audiences={audiences} />
       <Tools tools={tools} />
