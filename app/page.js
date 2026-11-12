@@ -1,7 +1,6 @@
 import { getSiteData } from '../lib/sanity'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
-import Explainer from '../components/Explainer'
 import Bio from '../components/Bio'
 import Projects from '../components/Projects'
 import Audience from '../components/Audience'
@@ -20,7 +19,6 @@ export default async function Home() {
       <Nav settings={settings} />
       <Hero settings={settings} />
       <Bio settings={settings} />
-      <Explainer />
       <Projects projects={projects} />
       <Audience audiences={audiences} />
       <Tools tools={tools} />
