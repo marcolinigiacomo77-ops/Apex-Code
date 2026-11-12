@@ -14,10 +14,12 @@ canvas{display:block}
 #bar button{background:#3d7bff;color:#fff;border:0;padding:8px 16px;border-radius:8px;font:inherit;cursor:pointer}
 #bar input[type=range]{flex:1;min-width:120px;accent-color:#3fe3ff}
 #bar label{display:flex;gap:6px;align-items:center}
+#fs{position:absolute;right:14px;bottom:14px;z-index:2;background:rgba(5,7,20,.78);color:#fff;border:1px solid rgba(255,255,255,.28);padding:8px 14px;border-radius:8px;font:600 13px Inter,system-ui,sans-serif;cursor:pointer}
+#fs:hover{background:rgba(61,123,255,.85)}
 #bar button:focus-visible,#bar input:focus-visible{outline:2px solid #fff;outline-offset:2px}
 </style></head><body>
-<div id="wrap"><div id="box"><canvas id="cv" width="1280" height="720"></canvas></div></div>
-<div id="bar"><button id="pp" type="button">Pausa</button><input id="sc" type="range" min="0" max="1000" value="0" aria-label="Scorri il video"><span id="tm">0,0 / 24,5 s</span><button id="snd" type="button" aria-pressed="true">Suono: sì</button><label><input id="loop" type="checkbox" checked> Loop</label></div>
+<div id="wrap"><div id="box"><canvas id="cv" width="1280" height="720"></canvas><button id="fs" type="button">⛶ Schermo intero</button></div></div>
+<div id="bar" style="display:none"><button id="pp" type="button">Pausa</button><input id="sc" type="range" min="0" max="1000" value="0" aria-label="Scorri il video"><span id="tm">0,0 / 24,5 s</span><button id="snd" type="button" aria-pressed="true">Suono: sì</button><label><input id="loop" type="checkbox" checked> Loop</label></div>
 <script>
 const W=1280,Hh=720;
 // ---- H (sottoinsieme della libreria, funzioni copiate dal riferimento) ----
@@ -312,6 +314,9 @@ sb.onclick=()=>{soundOn=!soundOn;soundOn?startS():stopS();sync()};
 lp.onchange=()=>{loop=lp.checked};
 addEventListener('keydown',e=>{if(e.code==='Space'&&e.target===document.body){e.preventDefault();pp.click()}});
 document.addEventListener('pointerdown',e=>{if(e.target===pp)return;if(playing&&soundOn)startS()},{once:true});
+const fsb=document.getElementById('fs');
+fsb.onclick=()=>{if(document.fullscreenElement){document.exitFullscreen()}else{document.documentElement.requestFullscreen()}};
+document.addEventListener('fullscreenchange',()=>{fsb.textContent=document.fullscreenElement?'✕ Esci da schermo intero':'⛶ Schermo intero';fit()});
 function fit(){const s=Math.min(wrap.clientWidth/W,wrap.clientHeight/Hh);box.style.width=W*s+'px';box.style.height=Hh*s+'px';cv.style.width='100%';cv.style.height='100%'}
 addEventListener('resize',fit);fit();
 window.seek=tt=>{t=Math.max(0,Math.min(DURATION,tt));draw()};window.DURATION=DURATION;window.scoreSound=scoreSound;window.explainer=explainer;
